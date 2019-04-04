@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DavidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DavidEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="DavidModel.City" />
+    <EntitySet Name="Countries" EntityType="DavidModel.Country" />
+    <EntitySet Name="FileDBCs" EntityType="DavidModel.FileDBC" />
+    <EntitySet Name="States" EntityType="DavidModel.State" />
+    <AssociationSet Name="FK__State__cid__40058253" Association="DavidModel.FK__State__cid__40058253">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ctid" />
+    </Key>
+    <Property Name="ctid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sid" Type="Int32" />
+    <Property Name="ctname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="States" Relationship="DavidModel.FK__State__cid__40058253" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="FileDBC">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfilePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ctn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="DavidModel.FK__State__cid__40058253" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <Association Name="FK__State__cid__40058253">
+    <End Type="DavidModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="DavidModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

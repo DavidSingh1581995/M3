@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DavidModelStoreContainer" CdmEntityContainer="DavidEntities">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="DavidModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ctname" ColumnName="ctname" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="ctid" ColumnName="ctid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="DavidModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileDBCs">
+      <EntityTypeMapping TypeName="DavidModel.FileDBC">
+        <MappingFragment StoreEntitySet="FileDBC">
+          <ScalarProperty Name="ctn" ColumnName="ctn" />
+          <ScalarProperty Name="sn" ColumnName="sn" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="DavidModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="sname" ColumnName="sname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

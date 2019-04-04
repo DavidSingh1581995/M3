@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddItem</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        #menubar {
+            background-color: white;
+            box-shadow: 0px 2px 7px #c8c8c8;
+        }
+
+        #signup {
+            width: 500px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.19);
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .btn-abc {
+            color: white;
+            background-color: #0E0c28;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding-top:30px;padding-bottom:100px">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-10" id="signup">
+                <div style="padding-top:20px;padding-bottom:10px">
+                    <h3 style="color:#0E0c28;text-align:center">Signup</h3>
+                </div>
+                <hr />
+                <div>
+                    <form action="/Work/AddItem" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="inputFile">User Id</label><br />
+                            <input type="text" id="Uid" name="Uid" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFile">Email</label><br />
+                            <input type="email" id="Email" name="Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFile">File Upload</label><br />
+                            <input type="file" id="ProfilePic" name="ProfilePic" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCheckBox">Qualification</label><br />
+                            <input type="checkbox" name="Qualification" id="Qualification1" value="1">Graduate
+                            <input type="checkbox" name="Qualification" id="Qualification2" value="2">Post Graduate
+                            <input type="checkbox" name="Qualification" id="Qualification3" value="3">Doctorate
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSubmit" onclick="">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

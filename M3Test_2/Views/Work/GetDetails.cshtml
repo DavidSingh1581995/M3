@@ -1,0 +1,94 @@
+﻿@model M3Test_2.Models.GetAllUserViewModel
+@{
+    Layout = null;
+}
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+
+<center><h2 style="color:#0E0c28">All User Details</h2></center>
+<div class="">
+    <form action="/Work/GetDetails" method="post">
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Email</th>
+                    <th>Profile Pic</th>
+                    <th>Qualification</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.userList)
+                {
+                    <tr>
+
+                        <td>@item.Uid</td>
+                        <td>@item.Email</td>
+                        <td><img style="max-height:75px;max-width:75px" src="@item.ProfilePic" alt="Not Found" /></td>
+                        <td>
+                            <ul>
+                                @{
+                                    if (item.Qualification.Equals(null))
+                                    {
+                                        <li>No Qualifications</li>
+                                    }
+                                    else
+                                    {
+                                        foreach (var qualify in item.Qualification)
+                                        {
+                                            if (qualify == "1")
+                                            {
+                                                <li>Graduate</li>
+                                            }
+                                            else if (qualify == "2")
+                                            {
+                                                <li>Post Graduate</li>
+                                            }
+                                            else if (qualify == "3")
+                                            {
+                                                <li>Doctorate</li>
+                                            }
+                                        }
+                                    }
+                                }
+                            </ul>
+                            </td>
+                        
+                        <td><a href="/Work/EditDetail?Id=@item.id"> Edit </a></td>
+                        @*<td><a href="/UserDetail/DeleteDetail?id=@item.id"> Delete </a></td>*@
+                    </tr>
+                }
+            </tbody>
+            @*<tfoot>
+                    <tr>
+                        <th>USer Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>URL</th>
+                        <th>Occupation</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Qualification</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>*@
+        </table>
+
+
+    </form>
+
+</div>
